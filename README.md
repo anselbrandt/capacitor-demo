@@ -37,36 +37,40 @@ ipconfig getifaddr en0
 ```
 
 `capacitor.config.ts`
+
 ```javascript
-import { CapacitorConfig } from '@capacitor/cli';
+import { CapacitorConfig } from "@capacitor/cli";
 
 const config: CapacitorConfig = {
-	appId: 'com.example.app',
-	appName: 'capacitor-app',
-	webDir: 'build',
-	bundledWebRuntime: false,
-	server: {
-		url: 'http://192.168.x.xx:3000',
-		cleartext: true
-	}
+  appId: "com.example.app",
+  appName: "capacitor-demo",
+  webDir: "build",
+  bundledWebRuntime: false,
+  server: {
+    url: "http://10.0.1.28:3000",
+    cleartext: true,
+  },
 };
 
 export default config;
 ```
 
 Apply changes:
+
 ```
 npx cap copy
 ```
 
 ## Fix Mobile UI
 
-`viewport-fit`
+Add `viewport-fit` to `public/index.html`
+
 ```
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 ```
 
 `src/App.tsx` wrapper element:
+
 ```
 paddingTop: 'env(safe-area-inset-top)'
 ```
